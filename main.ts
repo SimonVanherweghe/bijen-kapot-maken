@@ -48,12 +48,12 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (sprite, otherSpr
 })
 sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Enemy, function (sprite, otherSprite) {
     otherSprite.destroy(effects.rings, 100)
-    music.magicWand.play()
+    music.powerUp.play()
     info.changeScoreBy(1)
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
     otherSprite.destroy(effects.bubbles, 100)
-    music.siren.play()
+    music.powerDown.play()
     info.changeLifeBy(-1)
 })
 let klaver: Sprite = null
@@ -234,7 +234,7 @@ game.onUpdateInterval(5000, function () {
             `, randint(-50, 50), randint(-50, 50))
         bee.setKind(SpriteKind.Enemy)
     }
-    klaver = sprites.createProjectileFromSide(img`
+    klaver = sprites.create(img`
         . . . . . . 7 7 7 7 7 . . . . . 
         . . . . . 7 7 7 7 7 7 7 . . . . 
         . . . . 7 7 7 7 7 7 7 7 . . . . 
@@ -251,10 +251,9 @@ game.onUpdateInterval(5000, function () {
         . . . . 7 7 7 e 7 7 7 . . . . . 
         . . . . 7 7 7 7 7 7 . . . . . . 
         . . . . . 7 7 7 7 . . . . . . . 
-        `, randint(-50, 50), randint(-50, 50))
-    klaver.setKind(SpriteKind.Food)
+        `, SpriteKind.Food)
+    klaver.setPosition(randint(0, scene.screenWidth()), randint(0, scene.screenHeight()))
 })
 game.onUpdateInterval(5000, function () {
     zwermsize += 1
-    console.log(zwermsize)
 })
