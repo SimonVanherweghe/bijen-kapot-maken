@@ -56,8 +56,8 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSp
     music.siren.play()
     info.changeLifeBy(-1)
 })
-let bee: Sprite = null
 let klaver: Sprite = null
+let bee: Sprite = null
 let Ninjaster: Sprite = null
 let Speler: Sprite = null
 scene.setBackgroundImage(img`
@@ -211,7 +211,29 @@ Speler = sprites.create(img`
 controller.moveSprite(Speler)
 Speler.setFlag(SpriteFlag.StayInScreen, true)
 info.setScore(3)
+let zwermsize = 1
 game.onUpdateInterval(5000, function () {
+    for (let index = 0; index < zwermsize; index++) {
+        bee = sprites.createProjectileFromSide(img`
+            . . . f f f . . . . . . . . . . 
+            . . f d d d f . . . . . . . . . 
+            . f . d d d d f . . . . . . . . 
+            . . f f d d d f . . . . . . . . 
+            . . . . f d d d f . . . . . . . 
+            . . . . . f f f f . . . . . . . 
+            . . . f f f f f f f . . . . . . 
+            . . f e 5 e 5 e 5 e f f f f . . 
+            . f 5 e 5 e 5 e 5 e 5 5 5 5 f . 
+            . f 5 e 5 e 5 e 5 e 5 5 f 5 f . 
+            . f 5 e 5 e 5 e 5 e 5 5 5 5 f . 
+            . f 5 e 5 e 5 e 5 e 5 5 5 5 f . 
+            . f f f f f f e 5 e 5 5 5 f f . 
+            . f . . . . f f f f f f f f . . 
+            f . . . . . f . . . . f . . . . 
+            . . . . . . . . . . . . . . . . 
+            `, randint(-50, 50), randint(-50, 50))
+        bee.setKind(SpriteKind.Enemy)
+    }
     klaver = sprites.createProjectileFromSide(img`
         . . . . . . 7 7 7 7 7 . . . . . 
         . . . . . 7 7 7 7 7 7 7 . . . . 
@@ -230,24 +252,9 @@ game.onUpdateInterval(5000, function () {
         . . . . 7 7 7 7 7 7 . . . . . . 
         . . . . . 7 7 7 7 . . . . . . . 
         `, randint(-50, 50), randint(-50, 50))
-    bee = sprites.createProjectileFromSide(img`
-        . . . f f f . . . . . . . . . . 
-        . . f d d d f . . . . . . . . . 
-        . f . d d d d f . . . . . . . . 
-        . . f f d d d f . . . . . . . . 
-        . . . . f d d d f . . . . . . . 
-        . . . . . f f f f . . . . . . . 
-        . . . f f f f f f f . . . . . . 
-        . . f e 5 e 5 e 5 e f f f f . . 
-        . f 5 e 5 e 5 e 5 e 5 5 5 5 f . 
-        . f 5 e 5 e 5 e 5 e 5 5 f 5 f . 
-        . f 5 e 5 e 5 e 5 e 5 5 5 5 f . 
-        . f 5 e 5 e 5 e 5 e 5 5 5 5 f . 
-        . f f f f f f e 5 e 5 5 5 f f . 
-        . f . . . . f f f f f f f f . . 
-        f . . . . . f . . . . f . . . . 
-        . . . . . . . . . . . . . . . . 
-        `, randint(-50, 50), randint(-50, 50))
-    bee.setKind(SpriteKind.Enemy)
     klaver.setKind(SpriteKind.Food)
+})
+game.onUpdateInterval(5000, function () {
+    zwermsize += 1
+    console.log(zwermsize)
 })
