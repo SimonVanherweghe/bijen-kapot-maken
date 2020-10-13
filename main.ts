@@ -210,6 +210,7 @@ Speler = sprites.create(img`
 controller.moveSprite(Speler)
 Speler.setFlag(SpriteFlag.StayInScreen, true)
 info.setScore(0)
+info.setLife(3)
 let zwermsize = 1
 game.onUpdateInterval(5000, function () {
     for (let index = 0; index < zwermsize; index++) {
