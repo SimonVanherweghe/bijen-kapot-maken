@@ -182,30 +182,21 @@ scene.setBackgroundImage(img`
     7777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777
     `)
 Speler = sprites.create(img`
-    ........................
-    .....ffff...............
-    ...fff22fff.............
-    ..fff2222fff............
-    .fffeeeeeefff...........
-    .ffe222222eef...........
-    .fe2ffffff2ef...........
-    .ffffeeeeffff...........
-    ffefbf44fbfeff..........
-    fee41fddf14eef..........
-    .ffffdddddeef...........
-    fddddf444eef............
-    fbbbbf2222f4e...........
-    fbbbbf2222fd4...........
-    .fccf45544f44...........
-    ..ffffffff..............
-    ....ff..ff..............
-    ........................
-    ........................
-    ........................
-    ........................
-    ........................
-    ........................
-    ........................
+    . . . f f f 2 2 f f f . . . 
+    . . f f f 2 2 2 2 f f f . . 
+    . f f f e e e e e e f f f . 
+    . f f e 2 2 2 2 2 2 e e f . 
+    . f e 2 f f f f f f 2 e f . 
+    . f f f f e e e e f f f f . 
+    f f e f b f 4 4 f b f e f f 
+    f e e 4 1 f d d f 1 4 e e f 
+    . f f f f d d d d d e e f . 
+    f d d d d f 4 4 4 e e f . . 
+    f b b b b f 2 2 2 2 f 4 e . 
+    f b b b b f 2 2 2 2 f d 4 . 
+    . f c c f 4 5 5 4 4 f 4 4 . 
+    . . f f f f f f f f . . . . 
+    . . . . f f . . f f . . . . 
     `, SpriteKind.Player)
 controller.moveSprite(Speler)
 Speler.setFlag(SpriteFlag.StayInScreen, true)
@@ -234,26 +225,28 @@ game.onUpdateInterval(5000, function () {
             `, randint(-50, 50), randint(-50, 50))
         bee.setKind(SpriteKind.Enemy)
     }
-    klaver = sprites.create(img`
-        . . . . . . 7 7 7 7 7 . . . . . 
-        . . . . . 7 7 7 7 7 7 7 . . . . 
-        . . . . 7 7 7 7 7 7 7 7 . . . . 
-        . . . . . 7 7 7 e 7 7 7 . . . . 
-        . 7 . . . 7 7 7 e 7 7 . . 7 7 . 
-        7 7 7 7 . . 7 7 e 7 . . 7 7 7 7 
-        7 e 7 7 7 . 7 7 e 7 . 7 7 7 7 7 
-        7 7 e e 7 7 7 e 7 7 7 7 7 e 7 7 
-        7 7 7 7 e e e e 7 e e e e e 7 7 
-        7 7 7 7 7 7 7 e 7 7 7 7 7 e 7 7 
-        . 7 7 7 7 . 7 e 7 7 7 7 7 7 7 7 
-        . . . . . . 7 e 7 . . 7 7 7 7 . 
-        . . . . . . 7 e 7 7 . . . . . . 
-        . . . . 7 7 7 e 7 7 7 . . . . . 
-        . . . . 7 7 7 7 7 7 . . . . . . 
-        . . . . . 7 7 7 7 . . . . . . . 
-        `, SpriteKind.Food)
-    klaver.setPosition(randint(0, scene.screenWidth()), randint(0, scene.screenHeight()))
 })
 game.onUpdateInterval(7000, function () {
     zwermsize += 1
+})
+game.onUpdateInterval(4000, function () {
+    klaver = sprites.create(img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . 2 . . 
+        . . . . . . . . . . . . 2 . . . 
+        . . . . . . . . . . . 2 . . . . 
+        . . . . . . . . . . 2 . . . . . 
+        . . . f f f f f f f f f f . . . 
+        . . f 9 9 9 9 9 9 2 9 9 9 f . . 
+        . . f 9 9 9 9 9 9 2 9 9 9 f . . 
+        . . f 9 9 9 9 9 9 2 9 9 9 f . . 
+        . . . f 9 5 5 5 2 5 5 9 f . . . 
+        . . . f 9 5 5 5 2 5 5 9 f . . . 
+        . . . f 9 5 5 5 2 5 5 9 f . . . 
+        . . . . f 9 5 2 5 5 9 f . . . . 
+        . . . . f 9 5 2 5 5 9 f . . . . 
+        . . . . f 9 2 5 5 5 9 f . . . . 
+        . . . . . f f f f f f . . . . . 
+        `, SpriteKind.Food)
+    klaver.setPosition(randint(0, scene.screenWidth()), randint(0, scene.screenHeight()))
 })
