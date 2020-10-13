@@ -1,45 +1,44 @@
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     if (Speler.x > scene.screenWidth() / 2) {
         Ninjaster = sprites.createProjectileFromSprite(img`
-            . . . . . . . f f f f . . . . . 
-            . . . . . . f f 5 5 5 f . . . . 
-            . . . . . . f 5 5 5 5 f . . . . 
-            . . . . . f f 5 5 5 f f . . . . 
-            . . . . . f 5 5 5 f f . . . . . 
-            . . . . . f 5 5 5 f . . . . . . 
-            . . . . f f 5 5 f f . . . . . . 
-            . . . f f 5 5 5 5 5 f f f . . . 
-            . . f f 5 5 5 5 5 5 5 5 f f f . 
-            . f f 5 5 5 f f f 5 5 5 5 5 f f 
-            f f 5 5 5 f f . f 5 5 5 5 5 5 f 
-            f 5 5 5 f f . . . f 5 5 5 5 f f 
-            f f 5 f f . . . . . f 5 f f f . 
-            . f f f . . . . . . . f f . . . 
             . . . . . . . . . . . . . . . . 
+            . . . f f . . . . . . . . . . . 
+            . . f . . f . . . . . . . . . . 
+            . f f . . f f f . . . . . . . . 
+            f . . f f . . f f . . . . . . . 
+            . f . f f f f . f f . . . . . . 
+            . . f . . f f . f . . . . . . . 
+            . . . f f . . f . . . . . . . . 
+            . . . . f . f f . . . . . . . . 
+            . . . . . f f . f . . . . . . . 
+            . . . . . f . . . f . . . . . . 
+            . . . . . . . . . . f f . . . . 
+            . . . . . . . . . . . . f . . . 
+            . . . . . . . . . . . . . f . . 
+            . . . . . . . . . . . . . . f . 
             . . . . . . . . . . . . . . . . 
             `, Speler, -70, 0)
     } else {
         Ninjaster = sprites.createProjectileFromSprite(img`
-            . . . . . . . f f f f . . . . . 
-            . . . . . . f f 5 5 5 f . . . . 
-            . . . . . . f 5 5 5 5 f . . . . 
-            . . . . . f f 5 5 5 f f . . . . 
-            . . . . . f 5 5 5 f f . . . . . 
-            . . . . . f 5 5 5 f . . . . . . 
-            . . . . f f 5 5 f f . . . . . . 
-            . . . f f 5 5 5 5 5 f f f . . . 
-            . . f f 5 5 5 5 5 5 5 5 f f f . 
-            . f f 5 5 5 f f f 5 5 5 5 5 f f 
-            f f 5 5 5 f f . f 5 5 5 5 5 5 f 
-            f 5 5 5 f f . . . f 5 5 5 5 f f 
-            f f 5 f f . . . . . f 5 f f f . 
-            . f f f . . . . . . . f f . . . 
             . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . f f f f . . 
+            . . . . . . . . . f f . . f f f 
+            . . . . . . . . . f f f . f . f 
+            . . . . . . . . f f . f f . . f 
+            . . . . . . . f f f . f f f . f 
+            . . . . . . . f . f f f . f f f 
+            . . . . . . . f f f . f f f f . 
+            . . . . . . . . f f f . . f . . 
+            . . . . . . . f f . f f f . . . 
+            . . . . . . f f . . . . . . . . 
+            . . . . . f f . . . . . . . . . 
+            . . . . f f . . . . . . . . . . 
+            . . . f f . . . . . . . . . . . 
+            . . f f . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
             `, Speler, 70, 0)
     }
     music.pewPew.play()
-    Ninjaster.setKind(SpriteKind.Projectile)
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (sprite, otherSprite) {
     otherSprite.destroy(effects.halo, 100)
@@ -254,6 +253,6 @@ game.onUpdateInterval(5000, function () {
         `, SpriteKind.Food)
     klaver.setPosition(randint(0, scene.screenWidth()), randint(0, scene.screenHeight()))
 })
-game.onUpdateInterval(5000, function () {
+game.onUpdateInterval(7000, function () {
     zwermsize += 1
 })
