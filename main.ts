@@ -1,6 +1,6 @@
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     if (Speler.x > scene.screenWidth() / 2) {
-        Ninjaster = sprites.createProjectileFromSprite(img`
+        Vliegenmepper = sprites.createProjectileFromSprite(img`
             . . . . . . . . . . . . . . . . 
             . . . f f . . . . . . . . . . . 
             . . f . . f . . . . . . . . . . 
@@ -19,7 +19,7 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
             . . . . . . . . . . . . . . . . 
             `, Speler, -70, 0)
     } else {
-        Ninjaster = sprites.createProjectileFromSprite(img`
+        Vliegenmepper = sprites.createProjectileFromSprite(img`
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . f f f f . . 
             . . . . . . . . . f f . . f f f 
@@ -57,7 +57,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSp
 })
 let klaver: Sprite = null
 let bee: Sprite = null
-let Ninjaster: Sprite = null
+let Vliegenmepper: Sprite = null
 let Speler: Sprite = null
 scene.setBackgroundImage(img`
     9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999
@@ -206,21 +206,21 @@ let zwermsize = 1
 game.onUpdateInterval(5000, function () {
     for (let index = 0; index < zwermsize; index++) {
         bee = sprites.createProjectileFromSide(img`
-            . . . f f f . . . . . . . . . . 
-            . . f d d d f . . . . . . . . . 
-            . f . d d d d f . . . . . . . . 
-            . . f f d d d f . . . . . . . . 
-            . . . . f d d d f . . . . . . . 
-            . . . . . f f f f . . . . . . . 
-            . . . f f f f f f f . . . . . . 
-            . . f e 5 e 5 e 5 e f f f f . . 
-            . f 5 e 5 e 5 e 5 e 5 5 5 5 f . 
-            . f 5 e 5 e 5 e 5 e 5 5 f 5 f . 
-            . f 5 e 5 e 5 e 5 e 5 5 5 5 f . 
-            . f 5 e 5 e 5 e 5 e 5 5 5 5 f . 
-            . f f f f f f e 5 e 5 5 5 f f . 
-            . f . . . . f f f f f f f f . . 
-            f . . . . . f . . . . f . . . . 
+            . . . . f f f . . . . . . . . . 
+            . . . f d d d f . . . . . . . . 
+            . . f . d d d d f . . f f . . . 
+            . . . f f d d d f . f d d f . . 
+            . . . . . f d d d f d d d f . . 
+            . . . . . . f f f f d f f . . . 
+            . . . . f f f f f f f . . . . . 
+            . . . f e 5 e 5 e 5 e f f f f . 
+            . . f 5 e 5 e 5 e 5 e 5 5 5 5 f 
+            f f 5 5 e 5 e 5 e 5 e 5 5 f 5 f 
+            . . f 5 e 5 e 5 e 5 e 5 5 5 5 f 
+            . . . f e 5 e 5 e 5 e 5 5 5 5 f 
+            . . . . f f f f e 5 e 5 5 5 f f 
+            . . . . . . . f f f f f f f f . 
+            . . . . . . . f . . . . f . . . 
             . . . . . . . . . . . . . . . . 
             `, randint(-50, 50), randint(-50, 50))
         bee.setKind(SpriteKind.Enemy)
